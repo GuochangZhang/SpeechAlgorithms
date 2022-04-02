@@ -23,8 +23,8 @@ int main(int argc, char *argv[]) {
     static float runtime = 0.0;
     static float avg = 0.0;
 
-	char inFileName[128];
-	char outFileName[128];
+	char inFileName[512];
+	char outFileName[512];
 
 	int16_t *input = (int16_t *)calloc(FRAME_LENGTH, sizeof(int16_t));
 	int16_t *output = (int16_t *)calloc(FRAME_LENGTH, sizeof(int16_t));
@@ -32,8 +32,10 @@ int main(int argc, char *argv[]) {
 	FILE *in;
 	FILE *out;
 
-	sprintf(inFileName, "%s", "../sample/agc_test.wav");
-	sprintf(outFileName, "%s", "../sample/agc_test_out.wav");
+    // sprintf(inFileName, "%s", "../sample/agc_test.wav");
+	// sprintf(outFileName, "%s", "../sample/agc_test_out.wav");
+    sprintf(inFileName, "%s", argv[1]);
+	sprintf(outFileName, "%s", argv[2]);
 
 	in = fopen(inFileName, "rb");
 	if(in == NULL)
